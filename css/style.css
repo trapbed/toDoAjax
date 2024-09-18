@@ -1,0 +1,447 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@font-face{
+    font-family: 'KM';
+    src: url('../fonts/kanit/KanitCyrillic.otf');
+}
+@font-face {
+    font-family: 'InterM';
+    src: url('../fonts/inter/static/Inter_18pt-Medium.ttf');
+}
+.darkBG{
+    background-color: #252525;
+}
+#mainIndex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 98vmax;
+    height: 48vmax;
+    gap: 3vmax;
+}
+#imgNForm{
+    display: flex;
+    flex-direction: row;
+    gap: 3vmax;
+    justify-content: space-between;
+    align-items: center;
+}
+#rightGirl{
+    width: 20vmax;
+}
+#leftMan{
+    width: 20vmax;
+}
+#formRegAuth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #7064fc;
+    width: 40vmax;
+    /* background-color: antiquewhite; */
+}
+#formRegAuth>h1{
+    font-family: 'KM';
+    font-size: 3vmax;
+    line-height: 4vmax;
+}
+#formRegAuth>p{
+    font-family: KM;
+    font-size: 1.4vmax;
+}
+#forms{
+    width: 100%;
+    font-family: KM;
+    font-size: 1vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4vmax;
+}
+#forms>h6{
+    /* align-self: flex-start; */
+    line-height: 4vmax;
+    font-size: 1.4vmax;
+}
+.rowForms{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1vmax;
+    font-size: 1.3vmax;
+    width: 100%;
+}
+.rowForms>input{
+    width: 38vmax;
+    height: 3vmax;
+    font-size: 1.2vmax;
+    border-radius: 1vmax;
+    padding:  0 1vmax;
+    outline: none;
+    color: #7064fc;
+    font-family: KM;
+    border-color: #7064fc;
+}
+#forms>#submit{
+    align-self: flex-end;
+    height: 3vmax;
+    padding: 0 1vmax;
+    border-radius: 1vmax;
+    outline: none;
+    font-size: 1.2vmax;
+    color: #7064fc;
+    font-family: KM;
+    border-color: #7064fc;
+}
+
+#mainPageDiv{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 98vmax;
+    height: 48vmax;
+    background-color: transparent;
+
+}
+#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 53vmax;
+}
+#inHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    /* height:27vmin; */
+    /* line-height: 120%; */
+    /* background-color: wheat; */
+}
+#title{
+    display: flex;
+    flex-direction: row;
+    font-family: KM;
+    font-weight: 500;
+    font-size: 1.8vmax;
+    line-height: 500%;
+    text-transform: uppercase;
+    width: 53vmax;
+    justify-content: end;
+}
+#title>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    font-size: 1vmax;
+    width: 17vmax;
+    color: #7064fc;
+    gap: 3vmax;
+}
+#title>div>span{
+    align-self: center;
+}
+#title>div>a>img{
+    width: 2vmax;
+    height: 2vmax;
+}
+#formTheme{
+    /* background-color: antiquewhite; */
+    height: 2vmax;
+}
+#formHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 3.6vmax;
+
+    width: 53vmax;
+}
+#searchHeader{
+    padding: 0 0 0 1.4vmax;
+    font-size: 1.15vmax;
+    width: 40.5vmax;
+    height: 2.8vmax;
+    border-radius: 0.4vmax;
+    border: 0.1vmax solid #7064fc;
+    font-family: InterM;
+}
+#searchHeader::placeholder{
+    color: #C3C1E5;
+}
+#selectHeader{
+    font-family: KM;
+    font-size: 1.2vmax;
+    padding-left: 0.3vmax;
+    border-radius: 0.4vmax;
+    height: 2.8vmax;
+    width: 6vmax;
+    border: transparent;
+    background-color: #7064fc;
+    color: white;
+}
+#colorBtnHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 2.8vmax;
+    width: 2.8vmax;
+    border-radius: 0.4vmax;
+    background-color: #7064fc;
+    border: transparent;
+}
+#colorBtnHeader:hover{
+    background-color: #5850DD;
+    box-shadow: 0 0 0.05vmax #5750dda9;
+}
+/* #moonSun{
+    background: url('/images/Vector\ \(1\).svg');
+    border-radius: 0.4vmax;
+    background-size: cover;
+    /* width: 9vmin;
+    height: 9vmin; /
+    width: 1vmax;
+    height: 1vmax;
+    background-color: dodgerblue;
+} */
+#emptyTop{
+    width: 100vmax;
+    /* height: 3.4vmin; */
+    height: 5vmax;
+}
+#toDos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 53vmax;
+    margin-top: 2vmax;
+    /* height: 87vmin; */
+    height: 37vmax;
+    overflow-x: hidden;
+    /* overflow-y: none; */
+}
+.oneNote{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 38.5vmax;
+    height: 3.8vmax;
+    /* height: 4vmax; */
+}
+.checkboxOneNote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: white; */
+    width: 4.4vmax;
+    height: 100%;
+}
+.checkedNote{
+    width: 2vmax;
+    height: 2vmax;
+    border-color:  transparent;
+    outline: 0.15vmax solid #7064fc;
+    border: transparent;
+    background-color: transparent;
+}
+.checkedNote:checked{
+    outline: transparent;
+}
+.titleNote{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    width: 33vmax;
+    height: auto;
+    font-family: KM;
+    font-size: 1.4vmax;
+    text-decoration: none;
+    color: black;
+    /* background-color: firebrick; */
+    /* text-transform: uppercase; */
+}
+.btnsOneNote{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: green; */
+}
+.btnsOneNote>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rebeccapurple; */
+    width: 2vmax;
+    height: 2vmax;
+}
+.btnsOneNote>div>img{
+    width: 1vmax;
+}
+.betweenNotes{
+    width: 36vmax;
+    background-color: #7064fc;
+    height: 0.05vmax;
+    border: transparent;
+}
+#notes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#fixedBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 4vmax;
+    height: 4vmax;
+    background-color: #7064fc;
+    bottom: 1vmax;
+    right: 23.5vmax;
+    border-radius: 100vmax;
+    box-shadow: 0 0 1vmax 0.2vmax #7064fc;
+}
+#fixedBtn>img{
+    width: 2vmax;
+    height: 2vmax;
+}
+#backgroundNewTask, #backgroundEditTask{
+    z-index: 3;
+    display: none;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100vmax;
+    height: 100vmin;
+    position: fixed;
+    background-color: rgba(37, 37, 37, 0.7);
+}
+.checkedTaskDel{
+    color: rgba(37, 37, 37, 0.5);
+    text-decoration: line-through;
+}
+
+/* #backgroundEditTask{
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100vmax;
+    height: 100vmin;
+    position: fixed;
+    background-color: rgba(37, 37, 37, 0.7);
+} */
+
+
+#modalNewtask{
+    position: absolute;
+    /* top: 11vmax; */
+    border-radius: 1vmax;
+    display: grid;
+    grid-template-rows: 1.6vmax 1.3vmax 2vmax 2.6vmax 1.3vmax 6.6vmax 1.3vmax 2.7vmax auto;/*9.2vmax*/
+    grid-template-columns: 2.1vmax 7.8vmax 4vmax 8vmax 4.6vmax 6.8vmax auto ;
+    width: 35.5vmax;
+    height: 20.5vmax;
+    background-color: white;
+}
+#modalTitle{
+    font-family: KM;
+    justify-self: center;
+    grid-column: 2/7;
+    grid-row: 2/3;
+    font-size: 1.7vmax;
+    line-height: 90%;
+}
+#modalForm, #modalFormE{
+    display: grid;
+    grid-template-rows: 2.6vmax 1.3vmax 6.6vmax  1.3vmax 2.7vmax ;/*9.2vmax*/
+    grid-template-columns: 7.8vmax 4vmax 8vmax 4.6vmax 6.8vmax;
+    grid-column: 2/7;
+    grid-row: 4/7;
+}
+#modalFormTitle, #modalFormTitleE{
+    border-radius: 0.3vmax;
+    grid-row: 1/2;
+    border: 0.1vmax solid #7064fc;
+    padding-left: 1vmax;
+    font-family: KM;
+    font-size: 1vmax;
+    grid-column: 1/7;
+    outline: transparent;
+}
+#modalFormContent, #modalFormContentE{
+    outline: transparent;
+    padding: 1vmax 0 0 1vmax;
+    max-width: 30.1vmax;
+    max-height: 5.5vmax;
+    min-width: 30.1vmax;
+    min-height: 5.5vmax;
+    grid-column: 1/6;
+    grid-row: 3/4;
+    font-family: KM;
+    font-size: 1vmax;
+    border-radius: 0.3vmax;
+    border: 0.1vmax solid #7064fc;
+}
+#modalFormTitle::placeholder, #modalFormContent::placeholder{
+    color: #C3C1E5;
+    font-family: KM;
+    font-size: 1vmax;
+}
+
+#modalLeftBtn:hover, #modalRightBtn:hover{
+    background-color: #7064fc;
+    color: white;
+}
+#modalLeftBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3vmax;
+    border: 0.1vmax solid #7064fc;
+    font-family: KM;
+    font-size: 1.5vmax;
+    color: #7064fc;
+    text-decoration: none;
+    background-color: transparent;
+    grid-row: 8/9;
+    grid-column: 2/3;
+}
+#modalRightBtn{
+    border-radius: 0.3vmax;
+    border: 0.1vmax solid #7064fc;
+    color: #7064fc;
+    background-color: transparent;
+    font-family: KM;
+    font-size: 1.5vmax;
+    grid-row: 8/9;
+    grid-column: 6/7;
+}
+#emptyTasks{
+    display: flex;
+    flex-direction: column;
+    font-family: KM;
+    align-items: center;
+    font-size: 1.4vmax;
+    gap: 1.8vmax;
+    /* width: 80vmax; */
+    /* height: 15.3vmax; */
+}
+#emptyTasks>img{
+    width: 15vmax;
+}
