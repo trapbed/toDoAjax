@@ -40,6 +40,7 @@
     <title>Заметки</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js\jquery-3.7.1.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
     <script>
         
         $.ajax({
@@ -55,6 +56,8 @@
             let data = {
                 search: $('#searchHeader').val(),
                 select: $("#selectHeader").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
             }
             $.ajax({
                 method : "POST",
@@ -70,6 +73,8 @@
             let data = {
                 search: $('#searchHeader').val(),
                 select: $("#selectHeader").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
             }
             $.ajax({
                 type : "POST",
@@ -81,25 +86,49 @@
             })
         };
 
+        function newest(){
+            let data = {
+                search: $('#searchHeader').val(),
+                select: $("#selectHeader").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
+            }
+            $.ajax({
+                type : "POST",
+                url: "tasks.php",
+                data: data,
+                success: function search(response){
+                    $('#toDos').html(response);
+                }
+            })
+        }
+
+        function passed(){
+            let data = {
+                search: $('#searchHeader').val(),
+                select: $("#selectHeader").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
+            }
+            $.ajax({
+                type : "POST",
+                url: "tasks.php",
+                data: data,
+                success: function search(response){
+                    $('#toDos').html(response);
+                }
+            })
+        }
         
-        // function edit(){
-        //     $.ajax({
-        //         type : "POST",
-        //         url: "tasks.php",
-        //         data: "edit="+$('.edit').attr('edit-item'),
-        //         success: function edit(edit){
-        //             $('#toDos').html(edit);
-        //         }
-        //     })
-        // }
-        function deleteTask(id){
+        function deleteTask(id_task){
             const data = {
-                id: id,
+                id_task: id_task,              
                 act: 'delete',
+                
                 };
             $.ajax({
                 type : "POST",
-                url: "taskAct.php",
+                url: "tasks.php",
                 data: data,
                 success: function deleteTask(response){
                     $('#toDos').html(response);
@@ -109,7 +138,10 @@
                 $.ajax({
                     type : "POST",
                     url: "tasks.php",
-                    data: "id="+ <?=$_SESSION['user_id']?>,
+                    data: {
+                        search: $('#searchHeader').val(),
+                        select: $("#selectHeader").val(),
+                    },
                     success: function input(response){
                         $('#toDos').html(response);
                     }
@@ -128,13 +160,17 @@
         function editTask(index){
             const data = {
                 id_task: index,
+                select: $('#hiddenSelectEdit').val(),
+                search: $("#hiddenSearchEdit").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
                 act: 'oneTask',
                 };
             $.ajax({
                 type : "POST",
                 url: "tasks.php",
                 data: data,
-                success: function edit(edit){
+                success: function (edit){
                     $('#toDos').html(edit);
                 }
             }).then(function form(){
@@ -154,14 +190,36 @@
                 id_task: $("#modalFormIdE").val(),
                 title: $("#modalFormTitleE").val(),
                 desc: $("#modalFormContentE").val(),
+                search: $("#hiddenSearchEdit").val(),
+                select: $("#hiddenSelectEdit").val(),
+                // $("#modalFormE").serialize(),
             }
+            // var result = Object.keys(data).map((key) => [key, data[key]]);
+            $("#backgroundEditTask").css("display", "none");
+
             $.ajax({
                 type : "POST",
-                url: "taskAct.php",
+                url: "tasks.php",
                 data: data,
-                success: function edit(edit){
+                success: function (response){
+                    $('#toDos').html(response);
+                }
+            })
+            // return false;
+        }
+
+        function search_before(search, select){
+            const data = {
+                search: search,
+                select: select,
+            }
+
+            $.ajax({
+                type : "POST",
+                url: "tasks.php",
+                data: data,
+                success: function save(response){
                     $('#toDos').html(edit);
-                    
                 }
             })
         }
@@ -169,12 +227,16 @@
         function createTask(){
             const data = {
                 act: "create",
+                select: $("#hiddenSelectNew").val(),
+                search: $("#hiddenSearchNew").val(),
+                newest: $("#selectHeaderNewest").val(),
+                passed: $("#selectHeaderPassed").val(),
                 title: $("#modalFormTitle").val(),
                 desc: $("#modalFormContent").val(),
                 };
             $.ajax({
                 type : "POST",
-                url: "taskAct.php",
+                url: "tasks.php",
                 data: data,
                 success: function edit(edit){
                     
@@ -182,12 +244,7 @@
             })
         }
 
-        // function darkTheme(){
-        //     $("body").addClass("darkBG");
-        // }
-
         function completed(id){
-            // document.write(id);
             const data = {
                 act: "completed",
                 id: id,
@@ -196,7 +253,7 @@
                 };
             $.ajax({
                 type : "POST",
-                url: "taskAct.php",
+                url: "tasks.php",
                 data: data,
                 success: function edit(response){
                     // $('#toDos').html(response);
@@ -205,7 +262,7 @@
                 $.ajax({
                     type : "POST",
                     url: "tasks.php",
-                    data: "id="+ <?=$_SESSION['user_id']?>,
+                    data: data,
                     success: function input(response){
                         $('#toDos').html(response);
                     }
@@ -213,9 +270,7 @@
             )
         }
 
-
         function uncompleted(id){
-            // document.write(id);
             const data = {
                 act: "uncompleted",
                 id: id,
@@ -224,7 +279,7 @@
                 };
             $.ajax({
                 type : "POST",
-                url: "taskAct.php",
+                url: "tasks.php",
                 data: data,
                 success: function edit(response){
                     // $('#toDos').html(response);
@@ -233,7 +288,7 @@
                 $.ajax({
                     type : "POST",
                     url: "tasks.php",
-                    data: "id="+ <?=$_SESSION['user_id']?>,
+                    data: data,
                     success: function input(response){
                         $('#toDos').html(response);
                     }
@@ -285,16 +340,24 @@
                 </h1>
                 <div id="formTheme">
                     <form  id="formHeader">
-                        <input oninput="searching()" type="text" name="searchTask" placeholder="Запись..." id="searchHeader" value="<?= isset($_POST['searchTask']) ? $_POST['searchTask'] : '' ?>">
+                        <input oninput="searching()" type="text" name="searchTask" placeholder="Запись..." id="searchHeader" value="<?= isset($_POST['search']) ? $_POST['search'] : '' ?>">
                         <select onchange="select()" name="selectHeader" id="selectHeader">
                             <option value="" >ВСЕ</option>
                             <option value="1" >✓</option>
                             <option value="0" >-</option>
                         </select>
                         
-                        <button id="colorBtnHeader">
-                            <img src="images/Vector (1).svg" alt="">
-                        </button>
+                        <select onchange="newest()" name="selectHeaderNewest" id="selectHeaderNewest">
+                            <option value="">Новизна</option>
+                            <option value="DESC">Новые</option>
+                            <option value="ASC">Старые</option>
+                        </select>
+
+                        <select onchange="passed()" name="selectHeaderPassed" id="selectHeaderPassed">
+                            <option value="">Готовность</option>
+                            <option value="DESC">Готово</option>
+                            <option value="ASC">В процессе</option>
+                        </select>
                     </form>
                 </div>
             </div>
@@ -309,4 +372,4 @@
             
         ?>
         
-        <script src="js\jquery-3.7.1.min.js"></script>    
+        <!-- <script src="js\jquery-3.7.1.min.js"></script>     -->

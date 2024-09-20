@@ -10,9 +10,9 @@
     font-family: 'InterM';
     src: url('../fonts/inter/static/Inter_18pt-Medium.ttf');
 }
-.darkBG{
+/* .darkBG{
     background-color: #252525;
-}
+} */
 #mainIndex{
     display: flex;
     flex-direction: row;
@@ -162,12 +162,12 @@
 
     height: 3.6vmax;
 
-    width: 53vmax;
+    width: 57vmax;
 }
 #searchHeader{
     padding: 0 0 0 1.4vmax;
     font-size: 1.15vmax;
-    width: 40.5vmax;
+    width: 30.5vmax;
     height: 2.8vmax;
     border-radius: 0.4vmax;
     border: 0.1vmax solid #7064fc;
@@ -176,13 +176,24 @@
 #searchHeader::placeholder{
     color: #C3C1E5;
 }
-#selectHeader{
+#selectHeaderPassed{
     font-family: KM;
     font-size: 1.2vmax;
     padding-left: 0.3vmax;
     border-radius: 0.4vmax;
     height: 2.8vmax;
-    width: 6vmax;
+    width: 9vmax;
+    border: transparent;
+    background-color: #7064fc;
+    color: white;
+}
+#selectHeader, #selectHeaderNewest{
+    font-family: KM;
+    font-size: 1.2vmax;
+    padding-left: 0.3vmax;
+    border-radius: 0.4vmax;
+    height: 2.8vmax;
+    width: 7vmax;
     border: transparent;
     background-color: #7064fc;
     color: white;

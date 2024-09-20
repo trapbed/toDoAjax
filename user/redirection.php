@@ -21,11 +21,11 @@
         if($pass && $login){
             if($_POST['auth'] == 'false'){
                 $newUser = new User();
-                $newUser = $newUser->registration($login, $pass);
+                $newUser->registration($login, $pass);
             }
             else{
                 $user = new User();
-                $user = $user->authorization($login, $pass);
+                $user->authorization($login, $pass);
             }
         }
         else{

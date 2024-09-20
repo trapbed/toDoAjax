@@ -37,7 +37,6 @@
             $check_exist = "SELECT * FROM users WHERE username='$login'";
             if(mysqli_num_rows(mysqli_query($this->conn, $check_exist))>0){
                 $hashed_password = mysqli_fetch_array(mysqli_query($this->conn, $check_exist))[2];
-                // echo $hashed_password;
                 if(password_verify($pass, $hashed_password)){
                     $_SESSION['user_id'] = mysqli_fetch_array(mysqli_query($this->conn, $check_exist))[0];
                     $_SESSION['mess'] = 'Вы успешно вошли в аккаунт!';
@@ -53,7 +52,6 @@
                 $_SESSION['mess'] = "Такого пользователя нет! Загеристрируйтесь!";
                 header('Location: ../regAuth.php');
             }
-            // header('Location: ../index.php?auth=true');
         }
     }
 ?>
