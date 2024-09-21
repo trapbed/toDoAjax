@@ -14,7 +14,7 @@
             unset($_SESSION['login']);
             unset($_SESSION['user_id']);
             $_SESSION['mess'] = "Вы вышли из аккаунта!";
-            header('Location: /toDoListAjax/regAuth.php');
+            header('Location: ../regAuth.php');
         }
     }
     else{

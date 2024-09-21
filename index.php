@@ -2,7 +2,7 @@
     // print_r($_GET);
     // var_dump($_POST);
     
-    require "../toDoListAjax/database/Tasks.php";
+    require "database\Tasks.php";
 
     
 
@@ -194,7 +194,6 @@
                 select: $("#hiddenSelectEdit").val(),
                 // $("#modalFormE").serialize(),
             }
-            // var result = Object.keys(data).map((key) => [key, data[key]]);
             $("#backgroundEditTask").css("display", "none");
 
             $.ajax({
@@ -205,7 +204,6 @@
                     $('#toDos').html(response);
                 }
             })
-            // return false;
         }
 
         function search_before(search, select){
@@ -271,29 +269,56 @@
         }
 
         function uncompleted(id){
-            const data = {
-                act: "uncompleted",
-                id: id,
+            const data1 = {
                 search: $('#searchHeader').val(),
                 select: $("#selectHeader").val(),
-                };
-            $.ajax({
+            };
+            let confU = confirm('Вы действительно хотите отметить задачу как не выполненную ?');
+            if(confU){
+                let data2 = {
+                    act: "uncompleted",
+                    id: id,
+                    search: $('#searchHeader').val(),
+                    select: $("#selectHeader").val(),
+                }
+                $.ajax({
                 type : "POST",
                 url: "tasks.php",
-                data: data,
+                data: data2,
                 success: function edit(response){
                     // $('#toDos').html(response);
                 }
-            }).then(
+                }).then(
+                    $.ajax({
+                        type : "POST",
+                        url: "tasks.php",
+                        data: data2,
+                        success: function input(response){
+                            $('#toDos').html(response);
+                        }
+                    })
+                )
+            }
+            else{
                 $.ajax({
-                    type : "POST",
-                    url: "tasks.php",
-                    data: data,
-                    success: function input(response){
-                        $('#toDos').html(response);
-                    }
-                })
-            )
+                type : "POST",
+                url: "tasks.php",
+                data: data1,
+                success: function edit(response){
+                    // $('#toDos').html(response);
+                }
+                }).then(
+                    $.ajax({
+                        type : "POST",
+                        url: "tasks.php",
+                        data: data1,
+                        success: function input(response){
+                            $('#toDos').html(response);
+                        }
+                    })
+                )
+            }
+            
         }
         
         

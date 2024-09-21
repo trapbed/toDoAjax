@@ -129,38 +129,41 @@
                     foreach($tasks as $task) { ?>
 
                     <div class="oneNote">
-
-                        <div class="checkboxOneNote">
-                            <form class="formCheck" action="" method="POST">
-                                <input 
+                        <div class="allinOneNote">
+                            <div class="checkboxOneNote">
+                                <form class="formCheck" action="" method="POST">
+                                    <input 
+                                        <?php
+                                            if($task[4]=='0'){
+                                        ?>
+                                        onclick='completed(<?= $task[0]?>)'
+                                        <?php
+                                            }else{
+                                        ?>
+                                        onclick='uncompleted(<?= $task[0]?>)'
+                                        <?php
+                                            }
+                                        ?>
+                                    class="changeComplete checkedNote " type="checkbox" name="checkTask"  <?= $task[4] == '1' ? "checked" : "" ?>>
+                                    <input type="hidden" name="act" value="<?= $task[4] == '1' ? "checked" : "unchecked" ?>" >
+                                    <input type="hidden" name="id" value="<?= $task[0]?>">
+                                </form>
+                            </div>
+                            <div class="titleNote <?= $task[4] == '1' ? 'checkedTaskDel' : ''?>">
+                                <p><?= $task[2] ?></p>
+                                <div class="btnsOneNote">
                                     <?php
-                                        if($task[4]=='0'){
+                                        $search = isset($_POST['search'])?$_POST['search']:'';
+                                        $select = isset($_POST['select'])?$_POST['select']:'';
                                     ?>
-                                    onclick='completed(<?= $task[0]?>)'
-                                    <?php
-                                        }else{
-                                    ?>
-                                    onclick='uncompleted(<?= $task[0]?>)'
-                                    <?php
-                                        }
-                                    ?>
-                                class="changeComplete checkedNote " type="checkbox" name="checkTask"  <?= $task[4] == '1' ? "checked" : "" ?>>
-                                <input type="hidden" name="act" value="<?= $task[4] == '1' ? "checked" : "unchecked" ?>" >
-                                <input type="hidden" name="id" value="<?= $task[0]?>">
-                            </form>
-                        </div>
-                        <div class="titleNote <?= $task[4] == '1' ? 'checkedTaskDel' : ''?>">
-                            <p><?= $task[2] ?></p>
-                            <div class="btnsOneNote">
-                                <?php
-                                    $search = isset($_POST['search'])?$_POST['search']:'';
-                                    $select = isset($_POST['select'])?$_POST['select']:'';
-                                ?>
-                                <div onclick="editTask(<?=$task[0]?>)"><img src="images\pen.svg" alt=""></div>
-                                <div onclick="deleteTask(<?=$task[0]?>)"><img src="images\trash-svgrepo-com 1.svg" alt=""></div>
+                                    <div onclick="editTask(<?=$task[0]?>)"><img src="images\pen.svg" alt=""></div>
+                                    <div onclick="deleteTask(<?=$task[0]?>)"><img src="images\trash-svgrepo-com 1.svg" alt=""></div>
+                                </div>
                             </div>
                         </div>
-
+                        <div class="oneNoteDesc">
+                            <div class="emptyDesc"></div><span><?=$task[3]?></span>
+                        </div>
                     </div>
 
                     <hr class="betweenNotes">

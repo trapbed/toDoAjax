@@ -241,12 +241,34 @@
 }
 .oneNote{
     display: flex;
+    flex-direction: column;
+
+}
+.oneNoteDesc{
+    display: none;
+    flex-direction: row;
+    /* background-color: saddlebrown; */
+    font-family: KM;
+    font-size: 1.2vmax;
+    color: #C3C1E5;
+}
+.emptyDesc{
+    /* background-color: olive; */
+    width: 4.4vmax;
+    height: 100%;
+}
+.allinOneNote{
+    display: flex;
     flex-direction: row;
     cursor: pointer;
     width: 38.5vmax;
     height: 3.8vmax;
+    /* background-color: paleturquoise; */
     /* height: 4vmax; */
 }
+/* .allinOneNote{
+    background-color: rebeccapurple;
+} */
 .checkboxOneNote{
     display: flex;
     align-items: center;
