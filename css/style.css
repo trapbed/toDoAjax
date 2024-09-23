@@ -239,10 +239,10 @@
     overflow-x: hidden;
     /* overflow-y: none; */
 }
+
 .oneNote{
     display: flex;
     flex-direction: column;
-
 }
 .oneNoteDesc{
     display: none;
@@ -277,6 +277,22 @@
     width: 4.4vmax;
     height: 100%;
 }
+/* .oneNote{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 38.5vmax;
+    height: 3.8vmax;
+    height: 4vmax;
+}
+.checkboxOneNote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 4.4vmax;
+    height: 100%;
+} */
 .checkedNote{
     width: 2vmax;
     height: 2vmax;
@@ -478,3 +494,19 @@
 #emptyTasks>img{
     width: 15vmax;
 }
+
+/* #modalText{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #5750dda5;
+    position: fixed;
+    border-radius: 1vmax;
+    bottom: 5vmax;
+    left: 4vmax;
+    font-family: KM;
+    font-size: 1.2vmax;
+    color: white;
+    width: 20vmax;
+    height: 5vmax;
+} */

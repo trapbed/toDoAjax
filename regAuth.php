@@ -26,13 +26,13 @@
             <div id="formRegAuth">
                 <h1>Добро пожаловать</h1>
                 <p>Создайте шаги для достижения целей</p>
-                <form id="forms" action="user\redirection.php" method="post">
+                <form id="forms" action="/toDoListAjax/user/redirection.php" method="post">
                     <h6> <?= !isset($_GET['auth']) ? 'Регистрация':'Авторизация' ?></h6>
                     <label class="rowForms">Логин<input type="text" name="login" value="<?= isset($_SESSION['login']) ? $_SESSION['login'] : false?>"></label>
                     <label class="rowForms">Пароль<input type="password" name="pass" value="<?= isset($_SESSION['pass']) ? $_SESSION['pass'] : false?>"></label>
                     <input type="hidden" name="auth" value="<?= isset($_GET['auth']) ? 'true' : 'false' ?>">
                     <input type="submit" value="<?= !isset($_GET['auth']) ? 'Зарегистрироваться':'Войти' ?>" id="submit">
-                    <p>Уже есть аккаунт? <a href="<?= !isset($_GET['auth']) ? 'regAuth.php?auth=true' : 'regAuth.php' ?> "> <?= !isset($_GET['auth']) ? 'Войдите':'Зарегистрируйтесь' ?></a></p>
+                    <p>Уже есть аккаунт? <a href="<?= !isset($_GET['auth']) ? '../toDoListAjax/regAuth.php?auth=true' : '../toDoListAjax/regAuth.php' ?> "> <?= !isset($_GET['auth']) ? 'Войдите':'Зарегистрируйтесь' ?></a></p>
                 </form>
             </div>
             <div id="rightImg">

@@ -226,6 +226,10 @@
     <div id="toDos">
         
     </div>
+<!-- 
+    <div id="modalText">
+        Не удалось создать задачу!
+    </div> -->
     
     <script src="js\btns.js"></script>
     <script src="js\ajax.js"></script>

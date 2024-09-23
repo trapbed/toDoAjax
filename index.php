@@ -1,10 +1,5 @@
 <?php
-    // print_r($_GET);
-    // var_dump($_POST);
-    
-    require "database\Tasks.php";
-
-    
+    require "../toDoListAjax/database/Tasks.php";
 
     session_start();
 
@@ -194,6 +189,7 @@
                 select: $("#hiddenSelectEdit").val(),
                 // $("#modalFormE").serialize(),
             }
+            // var result = Object.keys(data).map((key) => [key, data[key]]);
             $("#backgroundEditTask").css("display", "none");
 
             $.ajax({
@@ -204,6 +200,7 @@
                     $('#toDos').html(response);
                 }
             })
+            // return false;
         }
 
         function search_before(search, select){
@@ -322,6 +319,7 @@
         }
         
         
+        
 
         // function seeWindowEdit(){
         //     $.ajax({
@@ -334,6 +332,8 @@
         //         }
         //     })
         // }
+
+        
         
     </script>
 </head>
